@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sentence Patterns</title>
+    <link rel="icon" href="static\imgs\logo.png">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static\css\bootstrap.css" />
+    <link rel="stylesheet" href="static\css\mycss.css" />
+    <link rel="stylesheet" href="static\css\popup.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-info sticky-top shadow mb-3">
+      <div class="container-fluid justify-content-center d-block">
+        <form method="post" autocomplete="off">
+          <div class="mb-2 mt-2">
+            <input
+              type="text"
+              class="d-block form-control form-control-lg mx-auto mt-4"
+              name="fname"
+              placeholder="Search here..."
+              value="{{ text }}"
+            />
+          </div>
+        </form>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row align-items-start">
+        <div class="col-1"></div>
+        <div class="col-10">
+
+          {% if not ListDict %}
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+              <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+              <div>
+                Please follow the correct search pattern.
+              </div>
+            </div>
+          {% endif %}
+
+
+          <div class="backg p-5">
+            <p> <svg  width="16" height="16" fill="currentColor" class="bi bi-circle-fill text-info" viewBox="0 0 16 16">
+              <circle cx="5" cy="5" r="5"/>
+            </svg> Founded results ({{ListDict|length}})</p>
+            {% for Dict in ListDict %}
+            <div class="mb-4 card shadow">            
+              <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                  <p class='selectable' id="{{loop.index}}" onclick="set_ID(this.id)">
+                    {% for word in Dict.BoldfaceListOfWords %}
+                      {% if word[1]==1 %}
+                        <strong class="underline">{{word[0]}}</strong> 
+                      {% else %}
+                        {{word[0]}}
+                      {% endif %}
+                    {% endfor %}
+                  </p>
+                  <div class="progress mt-4" style="width: 25%;">
+                    <div class="progress-bar" role="progressbar" style="width: {{ Dict.similarity }}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{ Dict.similarity }}%</div>
+                  </div>
+                  <div class="ref">
+                    <form action="" method="post" >
+                      <button 
+                      class='btn btn-link ref'
+                      name="fname"
+                      id="refbutton{{loop.index}}"
+                      value="@ref:{{Dict.doc_name}}">{{Dict.doc_name}}</button>
+                  </form>
+                  </div>
+                </blockquote>
+              </div>
+            </div>
+            {% else %} 
+            {% endfor %}
+          </div>
+          <!-- Toolbar -->
+          <div class="tools">
+            <form action="" method="post" >
+              <button 
+              class='btn
+              btn-secondary'
+              name="fname"
+              value="@ref:" 
+              onclick= "Copy2Clipboard(this)">
+                Open PDF source file.
+              </button>
+          </form>
+        </div>
+        <div class="col-1"></div>
+      </div>
+    </div>
+
+    <!-- Go to top -->
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+    </svg></button>
+    <script src="static/js/bootstrap.bundle.js"></script>
+    <script src="static/js/myscripts.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/popup.js"></script>
+  </body>
+</html>

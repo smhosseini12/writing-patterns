@@ -1,0 +1,98 @@
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    top: 150px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #0dcaf0; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 50%; /* Rounded corners */
+    font-size: 16px; /* Increase font size */
+  }
+  
+  #myBtn:hover {
+    background-color: rgb(255, 149, 149); /* Add a dark-grey background on hover */
+  }
+
+  .form-control {
+    width: 70%;
+  }
+
+
+  .card-header {
+    background-color: rgb(205 243 251 / 22%);
+  }
+
+
+
+  body{
+    font-size: 16px;
+    font-family: "Nunito Sans", "Open Sans", "helvetica neue", helvetica, arial, sans-serif;
+  }
+
+  .blockquote {
+    font-size: 16px;
+  }
+  .ref{
+    font-size: 13px;
+    text-align: right;
+    color: rgb(17 155 183);
+    text-decoration: none;
+  }
+  .card-body{
+    padding-bottom: 0.5rem;
+    text-align: justify;
+    text-justify: inter-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+  }
+  .card{
+    border-radius: 1rem;
+  }
+
+
+
+  .backg{
+      position: relative;
+      min-height: 2rem;
+      background: padding-box #f4f4f4;
+      border-width: 3px;
+      border-style: solid;
+      border-color: rgba(255, 255, 255, 0);
+      border-image: initial;
+      border-radius: 1rem;
+  }
+  .progress-bar{
+    background-color: #0dcaf0;
+  }
+
+  .toolbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 169px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: rgb(29, 28, 28);
+    text-align: center;
+    color: white;
+    border-radius: 8px;
+    
+    transform: translateX(-50%);
+  }
+  .btn:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+
+
+
+ 
