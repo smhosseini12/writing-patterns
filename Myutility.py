@@ -25,7 +25,7 @@ def similarsearch(WordList,dict_sentence,DocName,min_similarity=None):
     
     WordList_lowercase=[a.replace('.','').replace(',','').replace(';','').lower() for a in WordList]
     if MARK>min_similarity:
-        doc_name=DocName.split('\\')[-1]
+        doc_name=DocName.replace('\\','/').split('/')[-1]
         refword=WordList[0]
         SentencesAsListOfWords = dict_sentence['sentence'].split(' ')
         BoldfaceListOfWords=[]
